@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import '../output.css'
+
 export default class PageLoading extends Component {
   renderSrMessage() {
     if (!this.props.srMessage) {
@@ -23,7 +25,7 @@ export default class PageLoading extends Component {
             height: '50vh',
           }}
         >
-          <div className="spinner-border text-primary" role="status">
+          <div className="spinner-border tw-text-red-500" role="status">
             {this.renderSrMessage()}
           </div>
         </div>
