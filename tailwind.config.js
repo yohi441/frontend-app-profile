@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         primaryCrimson: '#B80934',
+        primaryNavy: '#120C45',
       },
     },
   },
@@ -15,6 +16,7 @@ module.exports = {
   },
   important: true,
   safelist: [
-    'nav-link'
+    'nav-link',
+    'menu'
   ]
 }

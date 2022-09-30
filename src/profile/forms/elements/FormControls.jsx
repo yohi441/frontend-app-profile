@@ -14,8 +14,8 @@ function FormControls({
   const buttonState = saveState === 'error' ? null : saveState;
 
   return (
-    <div className="d-flex flex-row-reverse flex-wrap justify-content-end align-items-center">
-      <div className="form-group d-flex flex-wrap">
+    <div className="flex-row-reverse flex-wrap d-flex justify-content-end align-items-center">
+      <div className="flex-wrap form-group d-flex">
         <label className="col-form-label" htmlFor={visibilityId}>
           {intl.formatMessage(messages['profile.formcontrols.who.can.see'])}
         </label>
@@ -28,8 +28,9 @@ function FormControls({
           onChange={changeHandler}
         />
       </div>
-      <div className="form-group flex-shrink-0 flex-grow-1">
+      <div className="flex-shrink-0 form-group flex-grow-1">
         <StatefulButton
+          className="tw-bg-primaryCrimson tw-border-none hover:tw-bg-red-600"
           type="submit"
           state={buttonState}
           labels={{
@@ -51,7 +52,7 @@ function FormControls({
           }}
           disabledStates={[]}
         />
-        <Button variant="link" onClick={cancelHandler}>
+        <Button className="tw-text-primaryCrimson hover:tw-text-red-600" variant="link" onClick={cancelHandler}>
           {intl.formatMessage(messages['profile.formcontrols.button.cancel'])}
         </Button>
       </div>

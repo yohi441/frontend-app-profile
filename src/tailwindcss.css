@@ -2,9 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+.tw-shadow-all {
+    
+    box-shadow: 0px 0px 5px 0px  !important;
+}
 
 @layer components {
+
+    .btn-link {
+        @apply tw-text-primaryCrimson hover:tw-text-red-600 !important;
+    }
+
+    .form-control {
+        @apply tw-border-primaryCrimson focus:tw-ring-0 !important;
+    }
+
     .nav-link { 
         @apply tw-text-primaryCrimson hover:tw-bg-white hover:tw-text-red-600 !important;
+    }
+
+    .tw-footer-link > li {
+        @apply -tw-ml-10 !important;
+    }
+
+    .tw-footer-link a {
+        @apply tw-text-sm tw-text-gray-800 tw-font-semibold !important;
+    }
+    
+    .container-fluid {
+        @apply tw-container !important;
+    }
+
+    .menu button {
+        @apply tw-border-none hover:tw-bg-white tw-space-x-10 tw-text-gray-800 !important;
     }
 }

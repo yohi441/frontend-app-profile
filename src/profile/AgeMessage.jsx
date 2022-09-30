@@ -23,7 +23,7 @@ function AgeMessage({ accountSettingsUrl }) {
           siteName: getConfig().SITE_NAME,
         }}
       />
-      <Alert.Link href={accountSettingsUrl}>
+      <Alert.Link className="tw-text-primaryCrimson" href={accountSettingsUrl}>
         <FormattedMessage
           id="profile.age.set.date"
           defaultMessage="Set your date of birth"

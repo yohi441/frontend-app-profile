@@ -30,7 +30,6 @@ export async function getAccount(username) {
 // PATCH PROFILE
 export async function patchProfile(username, params) {
   const processedParams = snakeCaseObject(params);
-
   const { data } = await getHttpClient()
     .patch(`${getConfig().LMS_BASE_URL}/api/user/v1/accounts/${username}`, processedParams, {
       headers: {

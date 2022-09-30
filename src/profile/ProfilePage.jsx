@@ -47,7 +47,7 @@ class ProfilePage extends React.Component {
     super(props, context);
 
     const recordsUrl = this.getRecordsUrl(context);
-
+    
     this.state = {
       viewMyRecordsUrl: recordsUrl,
       accountSettingsUrl: `${context.config.LMS_BASE_URL}/account/settings`,
@@ -67,6 +67,8 @@ class ProfilePage extends React.Component {
       username: this.props.match.params.username,
     });
   }
+
+
 
   handleSaveProfilePhoto(formData) {
     this.props.saveProfilePhoto(this.context.authenticatedUser.username, formData);
@@ -124,7 +126,7 @@ class ProfilePage extends React.Component {
     }
 
     return (
-      <Hyperlink className="btn btn-primary" destination={this.state.viewMyRecordsUrl} target="_blank">
+      <Hyperlink className="btn btn-primary tw-rounded-full hover:tw-bg-red-600 tw-bg-primaryCrimson tw-text-base tw-border-none" destination={this.state.viewMyRecordsUrl} target="_blank">
         {this.props.intl.formatMessage(messages['profile.viewMyRecords'])}
       </Hyperlink>
     );
@@ -136,7 +138,7 @@ class ProfilePage extends React.Component {
 
     return (
       <span data-hj-suppress>
-        <h1 className="h2 mb-0 font-weight-bold">{this.props.match.params.username}</h1>
+        <h1 className="mb-0 h2 font-weight-bold">{this.props.match.params.username}</h1>
         <DateJoined date={dateJoined} />
         {this.isYOBDisabled() && <UsernameDescription />}
         <hr className="d-none d-md-block" />
@@ -153,7 +155,7 @@ class ProfilePage extends React.Component {
 
     return (
       <div className="row">
-        <div className="col-md-4 col-lg-3">
+        <div className="col-md-4 col-lg-3 tw-bg-red-500">
           <Alert variant="danger" dismissible={false} show>
             {photoUploadError.userMessage}
           </Alert>
@@ -205,11 +207,48 @@ class ProfilePage extends React.Component {
     };
 
     return (
-      <div className="container-fluid">
-        <div className="row align-items-center pt-4 mb-4 pt-md-0 mb-md-0">
-          <div className="col-auto col-md-4 col-lg-3">
-            <div className="d-flex align-items-center d-md-block">
-              <ProfileAvatar
+      <div className="container-fluid tw-mt-20">
+        <div className="pt-4 mb-4 tw-px-5 row align-items-center pt-md-0 mb-md-0">
+          {/* profile card */}
+          <div className='tw-mb-20 tw-mt-30 tw-flex lg:tw-flex-row tw-flex-col tw-items-center tw-rounded-lg tw-px-10 tw-py-10 tw-w-full tw-shadow-all'>
+                
+                <div className='tw-relative tw-rounded-full tw-overflow-hidden tw-h-44 tw-w-44'>
+                  <ProfileAvatar
+                        src={profileImage.src}
+                        isDefault={profileImage.isDefault}
+                        onSave={this.handleSaveProfilePhoto}
+                        onDelete={this.handleDeleteProfilePhoto}
+                        savePhotoState={this.props.savePhotoState}
+                        isEditable={this.isAuthenticatedUserProfile() && !requiresParentalConsent}
+                      />
+                </div>
+
+            
+
+                <div className='lg:tw-ml-8 tw-mt-2 lg:tw-mt-0'>
+                  <h3 className='tw-text-primaryNavy'>{this.props.name}</h3>
+                  <p>@{this.props.username}</p>
+                </div>
+                <div className='lg:tw-ml-28 tw-mt-8 lg:tw-mt-0'>
+                  <h3 className='tw-uppercase tw-text-sm tw-text-gray-700'>member since</h3>
+                  <p><DateJoined date={this.props.dateJoined} /></p>
+                </div>
+                <div className='lg:tw-ml-10'>
+                  <h3 className='tw-uppercase tw-text-sm tw-text-gray-700'>enrolled</h3>
+                  <p>Lorem, ipsum.</p>
+                </div>
+                <div className='lg:tw-ml-10'>
+                  <h3 className='tw-uppercase tw-text-sm tw-text-gray-700'>Completed</h3>
+                  <p>Lorem, ipsum.</p>
+                </div>
+                <div className='lg:tw-ml-10'>
+                  <h3 className='tw-uppercase tw-text-sm tw-text-gray-700'>Certificate</h3>
+                  <p>Lorem, ipsum.</p>
+                </div>
+
+            </div>
+          {/* <div className="col-auto col-md-4 col-lg-3">
+          <ProfileAvatar
                 className="mb-md-3"
                 src={profileImage.src}
                 isDefault={profileImage.isDefault}
@@ -218,13 +257,12 @@ class ProfilePage extends React.Component {
                 savePhotoState={this.props.savePhotoState}
                 isEditable={this.isAuthenticatedUserProfile() && !requiresParentalConsent}
               />
-            </div>
-          </div>
-          <div className="col pl-0">
-            <div className="d-md-none">
+          </div> */}
+          <div className="pl-0 col">
+            {/* <div className="d-md-none">
               {this.renderHeadingLockup()}
-            </div>
-            <div className="d-none d-md-block float-right">
+            </div> */}
+            <div className="float-right d-none d-md-block">
               {this.renderViewMyRecordsButton()}
             </div>
           </div>
@@ -232,10 +270,10 @@ class ProfilePage extends React.Component {
         {this.renderPhotoUploadErrorMessage()}
         <div className="row">
           <div className="col-md-4 col-lg-4">
-            <div className="d-none d-md-block mb-4">
+            {/* <div className="mb-4 d-none d-md-block">
               {this.renderHeadingLockup()}
-            </div>
-            <div className="d-md-none mb-4">
+            </div> */}
+            <div className="mb-4 d-md-none">
               {this.renderViewMyRecordsButton()}
             </div>
             <Name
@@ -291,8 +329,8 @@ class ProfilePage extends React.Component {
 
   render() {
     return (
-      <div className="profile-page">
-        <Banner />
+      <div className="profile-page tw-min-h-screen">
+        {/* <Banner /> */}
         {this.renderContent()}
       </div>
     );

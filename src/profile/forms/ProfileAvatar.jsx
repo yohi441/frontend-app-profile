@@ -7,6 +7,8 @@ import { ReactComponent as DefaultAvatar } from '../assets/avatar.svg';
 
 import messages from './ProfileAvatar.messages';
 
+import '../../output.css'
+
 class ProfileAvatar extends React.Component {
   constructor(props) {
     super(props);
@@ -43,10 +45,10 @@ class ProfileAvatar extends React.Component {
   renderPending() {
     return (
       <div
-        className="position-absolute w-100 h-100 d-flex justify-content-center align-items-center rounded-circle"
+        className="tw-absolute w-100 h-100 d-flex justify-content-center align-items-center rounded-circle"
         style={{ backgroundColor: 'rgba(0,0,0,.65)' }}
       >
-        <div className="spinner-border text-primary" role="status" />
+        <div className="spinner-border tw-z-40 tw-text-primaryCrimson" role="status" />
       </div>
     );
   }
@@ -57,9 +59,8 @@ class ProfileAvatar extends React.Component {
     if (this.props.isDefault) {
       return (
         <Button
-          variant="link"
-          size="sm"
-          className="text-white btn-block"
+          
+          className="tw-border-none tw-opacity-80 hover:tw-opacity-100 tw-z-50 tw-absolute hover:tw-text-white tw-bottom-0 tw-py-3 tw-pb-5 tw-text-sm tw-no-underline tw-px-8 tw-left-3 tw-text-white tw-bg-gray-500"
           onClick={this.onClickUpload}
         >
           <FormattedMessage
@@ -73,7 +74,7 @@ class ProfileAvatar extends React.Component {
 
     return (
       <Dropdown>
-        <Dropdown.Toggle>
+        <Dropdown.Toggle className="tw-text-sm hover:tw-opacity-100 tw-z-50 tw-border-none tw-pb-6 tw-px-14 tw-absolute tw-top-32 tw-left-2 tw-opacity-70 tw-text-white tw-bg-gray-500">
           {intl.formatMessage(messages['profile.profileavatar.change-button'])}
         </Dropdown.Toggle>
         <Dropdown.Menu>
@@ -102,7 +103,7 @@ class ProfileAvatar extends React.Component {
     }
 
     return (
-      <div className="profile-avatar-menu-container">
+      <div className="">
         {this.renderMenuContent()}
       </div>
     );
@@ -112,11 +113,11 @@ class ProfileAvatar extends React.Component {
     const { intl } = this.props;
 
     return this.props.isDefault ? (
-      <DefaultAvatar className="text-muted" role="img" aria-hidden focusable="false" viewBox="0 0 24 24" />
+      <DefaultAvatar className="tw-top-0 tw-absolute text-muted tw-h-full tw-w-full tw-overflow-hidden" role="img" aria-hidden focusable="false" viewBox="0 0 24 24" />
     ) : (
       <img
         data-hj-suppress
-        className="w-100 h-100 d-block rounded-circle overflow-hidden"
+        className="overflow-hidden tw-absolute tw-top-0 tw-left-0 tw-h-44 tw-shadow-all d-block rounded-circle"
         style={{ objectFit: 'cover' }}
         alt={intl.formatMessage(messages['profile.image.alt.attribute'])}
         src={this.props.src}
@@ -126,8 +127,8 @@ class ProfileAvatar extends React.Component {
 
   render() {
     return (
-      <div className="profile-avatar-wrap position-relative">
-        <div className="profile-avatar rounded-circle bg-light">
+      <div className="">
+        <div className="">
           {this.props.savePhotoState === 'pending' ? this.renderPending() : this.renderMenu() }
           {this.renderAvatar()}
         </div>
@@ -138,7 +139,7 @@ class ProfileAvatar extends React.Component {
         >
           {/* The name of this input must be 'file' */}
           <input
-            className="d-none form-control-file"
+            className="tw-hidden tw-opacity-0 tw-z-30 tw-absolute tw-bottom-0 tw-left-7"
             ref={this.fileInput}
             type="file"
             name="file"

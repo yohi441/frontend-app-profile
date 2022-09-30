@@ -23,8 +23,10 @@ import Footer, { messages as footerMessages } from '@edx/frontend-component-foot
 import appMessages from './i18n';
 import { ProfilePage, NotFoundPage } from './profile';
 import configureStore from './data/configureStore';
+import { MyFooter } from './footer/MyFooter';
 
 import './index.scss';
+
 
 subscribe(APP_READY, () => {
   ReactDOM.render(
@@ -37,7 +39,7 @@ subscribe(APP_READY, () => {
           <Route path="*" component={NotFoundPage} />
         </Switch>
       </main>
-      <Footer />
+      <MyFooter />
     </AppProvider>,
     document.getElementById('root'),
   );

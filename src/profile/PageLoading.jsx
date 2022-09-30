@@ -22,7 +22,7 @@ export default class PageLoading extends Component {
         <div
           className="d-flex justify-content-center align-items-center flex-column"
           style={{
-            height: '50vh',
+            height: '60vh',
           }}
         >
           <div className="spinner-border tw-text-red-500" role="status">

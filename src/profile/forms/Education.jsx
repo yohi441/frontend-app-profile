@@ -72,7 +72,7 @@ class Education extends React.Component {
                   </label>
                   <select
                     data-hj-suppress
-                    className="form-control"
+                    className="form-control tw-border-primaryCrimson focus:tw-ring-0"
                     id={formId}
                     name={formId}
                     value={levelOfEducation}

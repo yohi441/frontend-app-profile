@@ -69,14 +69,14 @@ class Certificates extends React.Component {
 
     return (
       <div key={`${modifiedDate}-${courseId}`} className="col col-sm-6 d-flex align-items-stretch">
-        <div className="card mb-4 certificate flex-grow-1">
+        <div className="mb-4 card certificate flex-grow-1">
           <div
             className="certificate-type-illustration"
             style={{ backgroundImage: `url(${certificateIllustration})` }}
           />
           <div className="card-body d-flex flex-column">
             <div className="card-title">
-              <p className="small mb-0">
+              <p className="mb-0 small">
                 {intl.formatMessage(get(
                   messages,
                   `profile.certificates.types.${certificateType}`,
@@ -85,15 +85,15 @@ class Certificates extends React.Component {
               </p>
               <h4 className="certificate-title">{courseDisplayName}</h4>
             </div>
-            <p className="small mb-0">
+            <p className="mb-0 small">
               <FormattedMessage
                 id="profile.certificate.organization.label"
                 defaultMessage="From"
               />
             </p>
-            <p className="h6 mb-4">{courseOrganization}</p>
+            <p className="mb-4 h6">{courseOrganization}</p>
             <div className="flex-grow-1" />
-            <p className="small mb-2">
+            <p className="mb-2 small">
               <FormattedMessage
                 id="profile.certificate.completion.date.label"
                 defaultMessage="Completed on {date}"
