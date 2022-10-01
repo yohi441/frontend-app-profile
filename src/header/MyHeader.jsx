@@ -1,31 +1,70 @@
-import '../output.css'
-import { useState, useEffect } from 'react';
+import '../output.css';
+import { getConfig } from '@edx/frontend-platform';
+import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
+import { useState } from 'react';
+import { DropDown } from './DropDown';
+import { Avatar } from '@edx/paragon';
+
+
 
 export const MyHeader = () => {
-    const [data, setData] = useState(null);
+    let lmsBaseUrl = getConfig().LMS_BASE_URL;
+    let dashboardUrl = `${lmsBaseUrl}/dashboard/`;
+    let hackademyLogo = `${lmsBaseUrl}/static/hackademy-theme/images/logo.png`;
+    let profileImage = getAuthenticatedUser().profileImage;
+    let username = getAuthenticatedUser().username;
 
-    useEffect(() => {
-        fetch(`http://apps.local.overhang.io:8000/api/user/v1/me`)
-        .then((response) => response.json())
-        .then((actualData) => console.log(actualData))
-        .catch((err) => {
-         console.log(err.message);
-        });
-       }, []);
+    // this code is use for getting the Avatar.url
+    const profileImageObj = new Map();
+    for (const key in profileImage) {
+        profileImageObj.set(key, profileImage[key]);
+    }
+
+    // this code is use for toggling the dropdown menu
+    const [show, setShow] = useState(false)
+    const handleClick = (event) => {
+       setShow(!show)
+    }
+    
+    
     return (
         <div className="tw-container tw-mx-auto tw-py-5">
             <div className='tw-wrapper tw-flex tw-justify-between'>
-                <div className='tw-cursor-pointer tw-h-10 tw-flex tw-gap-5 tw-items-center'>
-                    <img className='tw-w-full tw-h-full' src="http://local.overhang.io:8000/static/hackademy-theme/images/logo.png" alt="hackademy-logo" />
-                    <div>
-                        <a className='tw-text-primaryCrimson tw-no-underline hover:tw-text-red-600' href="">Course</a>
+                <a className='tw-no-underline' href={dashboardUrl}>
+                    <div className='tw-cursor-pointer tw-h-10 tw-flex tw-gap-5 tw-items-center'>
+                        <img className='tw-w-full tw-h-full' src={hackademyLogo} alt="hackademy-logo" />
+                        <div className='tw-border-bottom'>
+                            <a className="hover:tw-ring-primaryCrimson tw-no-underline tw-text-gray-700" href={dashboardUrl}>Course</a>
+                        </div>
+                    </div>  
+                </a>          
+                <div className='tw-flex tw-gap-4 tw-items-center'>
+                    
+                    <div className='tw-px-1 hover:tw-bg-gray-200'>
+                        <a href="https://edx.readthedocs.io/projects/open-edx-learner-guide/en/open-release-maple.master/SFD_dashboard_profile_SectionHead.html">
+                        <span class="tw-text-gray-700 fa fa-question-circle"></span>
+                        </a>
                     </div>
-                </div>            
-                <div className='tw-flex tw-items-center'>
-                    <div>help</div>
-                    <div>username</div>
-                    <div>img</div>
-                    <div>arrow</div>
+                    <div className='tw-cursor-pointer hover:tw-bg-gray-200 tw-px-1'>
+                        <a href={dashboardUrl} className='tw-text-primaryNavy tw-no-underline'>{username}</a>
+                    </div>
+
+                    {/* avatar */}
+                    <div className='p-1 hover:tw-bg-gray-200'>
+                        <div className='tw-cursor-pointer tw-h-12 tw-w-12 tw-rounded-full tw-shadow-all tw-overflow-hidden'>
+                            <a href={dashboardUrl}>
+                                <img className='tw-w-full tw-h-full tw-object-cover' src={profileImageObj.get('imageUrlSmall')} alt="" />
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* dropdown button */}
+                    <div onClick={handleClick} className='tw-relative hover:tw-bg-gray-200 tw-px-1 tw-cursor-pointer'>
+                        <svg width="20px" height="20px" viewBox="0 0 16 16" version="1.1" role="img" aria-hidden="true" focusable="false">
+                            <path d="M7,4 L7,8 L11,8 L11,10 L5,10 L5,4 L7,4 Z" fill="currentColor" transform="translate(8.000000, 7.000000) rotate(-45.000000) translate(-8.000000, -7.000000) "></path>
+                        </svg>
+                        {show ? <DropDown />: null }
+                    </div>
                 </div>
                 
             </div>
