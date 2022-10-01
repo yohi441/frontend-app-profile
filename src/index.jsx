@@ -24,14 +24,14 @@ import appMessages from './i18n';
 import { ProfilePage, NotFoundPage } from './profile';
 import configureStore from './data/configureStore';
 import { MyFooter } from './footer/MyFooter';
-
+import { MyHeader } from './header/MyHeader';
 import './index.scss';
 
 
 subscribe(APP_READY, () => {
   ReactDOM.render(
     <AppProvider store={configureStore()}>
-      <Header />
+      <MyHeader />
       <main>
         <Switch>
           <Route path="/u/:username" component={ProfilePage} />

@@ -18,7 +18,7 @@ export const DropDown = (props) => {
 
     return (
         <div className='tw-bg-white tw-overflow-hidden tw-rounded-md tw-shadow-all tw-w-44 tw-z-50 tw-absolute tw-top-12 tw-right-0'> 
-            <div className='tw-list-none tw-flex tw-flex-col tw-dropdown-link'>
+            <div className='tw-main-dropdown tw-list-none tw-flex tw-flex-col tw-dropdown-link'>
                 <a href={lmsDashboardUrl}><div>Dashboard</div></a>
                 <a href={profileUrl}><div>Profile</div></a>
                 <a href={accountUrl}><div>Account</div></a>

@@ -7,6 +7,10 @@
     box-shadow: 0px 0px 5px 0px  !important;
 }
 
+.tw-border-course:hover {
+    border-bottom: 3px #B80934 solid !important;
+}
+
 @layer components {
 
     .btn-link {
@@ -35,5 +39,13 @@
 
     .menu button {
         @apply tw-border-none hover:tw-bg-white tw-space-x-10 tw-text-gray-800 !important;
+    }
+
+    .tw-main-dropdown > a > div {
+        @apply hover:tw-bg-gray-200 tw-flex tw-py-3 tw-text-gray-700 tw-justify-center !important;
+    }
+
+    .tw-main-dropdown > a {
+        @apply tw-no-underline !important;
     }
 }
