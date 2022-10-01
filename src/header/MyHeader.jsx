@@ -1,9 +1,32 @@
 import '../output.css';
 import { getConfig } from '@edx/frontend-platform';
 import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { DropDown } from './DropDown';
-import { Avatar } from '@edx/paragon';
+
+
+// close the dropdown menu if user click outside
+let useClickOutside = (handler) => {
+    let domNode = useRef();
+
+    useEffect(() => {
+        let clickHandler = (event) => {
+            if(!domNode.current.contains(event.target)){
+                handler();
+            }
+        };
+
+        document.addEventListener("mousedown", clickHandler);
+
+        return () => {
+            document.removeEventListener('mousedown', clickHandler)
+        }
+    })
+
+    return domNode
+}
+
+
 
 
 
@@ -25,6 +48,10 @@ export const MyHeader = () => {
     const handleClick = (event) => {
        setShow(!show)
     }
+
+    let menuRef = useClickOutside(() => {
+        setShow(false);
+    });
     
     
     return (
@@ -59,11 +86,13 @@ export const MyHeader = () => {
                     </div>
 
                     {/* dropdown button */}
-                    <div onClick={handleClick} className='tw-relative hover:tw-bg-gray-200 tw-px-1 tw-cursor-pointer'>
+                    <div ref={menuRef} onClick={handleClick} className='tw-relative hover:tw-bg-gray-200 tw-px-1 tw-cursor-pointer'>
                         <svg width="20px" height="20px" viewBox="0 0 16 16" version="1.1" role="img" aria-hidden="true" focusable="false">
                             <path d="M7,4 L7,8 L11,8 L11,10 L5,10 L5,4 L7,4 Z" fill="currentColor" transform="translate(8.000000, 7.000000) rotate(-45.000000) translate(-8.000000, -7.000000) "></path>
                         </svg>
-                        {show ? <DropDown />: null }
+                        <div ref={menuRef}>
+                            {show ? <DropDown menuRef />: null }
+                        </div>
                     </div>
                 </div>
                 

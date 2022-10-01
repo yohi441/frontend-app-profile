@@ -1,9 +1,10 @@
 import '../output.css'
 import { getConfig } from '@edx/frontend-platform'
 import { getAuthenticatedUser } from '@edx/frontend-platform/auth'
+import { useRef } from 'react';
 
 
-export const DropDown = () => {
+export const DropDown = (props) => {
     const username = getAuthenticatedUser().username;
     const config = getConfig();
     const lmsBaseUrl = config.LMS_BASE_URL
@@ -12,6 +13,7 @@ export const DropDown = () => {
     const lmsDashboardUrl = `${lmsBaseUrl}/dashboard/`
     const logoutUrl = config.LOGOUT_URL;
     const orderHistoryUrl = config.ORDER_HISTORY_URL;
+
 
 
     return (
