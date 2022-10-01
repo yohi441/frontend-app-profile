@@ -5,12 +5,13 @@ import { getAuthenticatedUser } from '@edx/frontend-platform/auth'
 
 export const DropDown = () => {
     const username = getAuthenticatedUser().username;
-    const lmsBaseUrl = getConfig().LMS_BASE_URL
+    const config = getConfig();
+    const lmsBaseUrl = config.LMS_BASE_URL
     const profileUrl = `${lmsBaseUrl}/u/${username}`
     const accountUrl = `${lmsBaseUrl}/account/settings`
     const lmsDashboardUrl = `${lmsBaseUrl}/dashboard/`
-    const logoutUrl = getConfig().LOGOUT_URL;
-    const orderHistoryUrl = getConfig().ORDER_HISTORY_URL;
+    const logoutUrl = config.LOGOUT_URL;
+    const orderHistoryUrl = config.ORDER_HISTORY_URL;
 
 
     return (
