@@ -16,7 +16,7 @@ function EditableItemHeader({
     <div className="mb-2 editable-item-header">
       <h2 className="edit-section-header" id={headingId}>
         {content}
-        {showEditButton ? <EditButton style={{ marginTop: '-.35rem' }} className="float-right px-0 tw-text-primaryCrimson hover:tw-text-red-600" onClick={onClickEdit} /> : null}
+        {showEditButton ? <EditButton style={{ marginTop: '-.35rem' }} className="float-right tw-px-2 tw-text-primaryNavy hover:tw-bg-gray-200" onClick={onClickEdit} /> : null}
       </h2>
       {showVisibility ? <p className="mb-0"><Visibility to={visibility} /></p> : null}
     </div>

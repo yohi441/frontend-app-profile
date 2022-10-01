@@ -30,7 +30,7 @@ function FormControls({
       </div>
       <div className="flex-shrink-0 form-group flex-grow-1">
         <StatefulButton
-          className="tw-bg-primaryCrimson tw-border-none hover:tw-bg-red-600"
+          className="tw-bg-primaryNavy hover:tw-bg-gray-200 hover:tw-text-gray-700"
           type="submit"
           state={buttonState}
           labels={{
@@ -52,7 +52,7 @@ function FormControls({
           }}
           disabledStates={[]}
         />
-        <Button className="tw-text-primaryCrimson hover:tw-text-red-600" variant="link" onClick={cancelHandler}>
+        <Button className="tw-text-primaryNavy hover:tw-text-white hover:tw-bg-primaryNavy" variant="link" onClick={cancelHandler}>
           {intl.formatMessage(messages['profile.formcontrols.button.cancel'])}
         </Button>
       </div>

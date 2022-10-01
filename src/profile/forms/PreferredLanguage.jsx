@@ -88,7 +88,7 @@ class PreferredLanguage extends React.Component {
                     data-hj-suppress
                     id={formId}
                     name={formId}
-                    className="form-control tw-border-primaryCrimson focus:tw-ring-0"
+                    className="form-control tw-border-primaryNavy focus:tw-ring-0"
                     value={value}
                     onChange={this.handleChange}
                   >

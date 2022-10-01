@@ -39,7 +39,7 @@ function VisibilitySelect({ intl, className, ...props }) {
       <span className="ml-1 mr-2 d-inline-block" style={{ width: '1.5rem' }}>
         <FontAwesomeIcon icon={icon} />
       </span>
-      <select className="w-auto d-inline-block tw-border-primaryCrimson focus:tw-ring-0 form-control" {...props}>
+      <select className="w-auto d-inline-block tw-border-primaryNavy focus:tw-ring-0 form-control" {...props}>
         <option key="private" value="private">
           {intl.formatMessage(messages['profile.visibility.who.just.me'])}
         </option>

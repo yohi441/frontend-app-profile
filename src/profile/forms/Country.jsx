@@ -76,7 +76,7 @@ class Country extends React.Component {
                   </label>
                   <select
                     data-hj-suppress
-                    className="form-control tw-border-primaryCrimson focus:tw-ring-0"
+                    className="form-control tw-border-primaryNavy focus:tw-ring-0"
                     type="select"
                     id={formId}
                     name={formId}

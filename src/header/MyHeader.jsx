@@ -26,26 +26,30 @@ export const MyHeader = () => {
     // this code is use for toggling the dropdown menu
     const [show, setShow] = useState(false)
     const [showLeftDrop, setShowLeftDrop] = useState(false)
+    const [showRightDrop, setShowRightDrop] = useState(false)
 
     const mainMenuDropdown = (event) => {
-       setShow(!show)
-       setShowLeftDrop(false)
+        setShow(!show)
     }
     const secondaryMenuDropdown = (event) => {
         setShowLeftDrop(!showLeftDrop)
-        setShow(false)
+        setShowRightDrop(false)
+    }
+    const secondaryMenuLeftDropdown = (event) => {
+        setShowRightDrop(!showRightDrop)
+        setShowLeftDrop(false)
     }
 
 
-    
-    
     return (
         <div className='tw-relative'>
             <div className="tw-container tw-mx-auto tw-py-5">
                 <div className='tw-wrapper tw-items-center tw-flex tw-justify-between'>
+                   
                     <div onClick={secondaryMenuDropdown} className='p-2 hover:tw-bg-gray-200 tw-cursor-pointer md:tw-hidden'>
                         <BurgerIcon />
                     </div>
+                    
                     <a className='tw-no-underline' href={dashboardUrl}>
                         <div className='tw-cursor-pointer tw-h-10 tw-flex tw-gap-5 tw-items-center'>
                             <img className='tw-w-full tw-h-full' src={hackademyLogo} alt="hackademy-logo" />
@@ -67,7 +71,7 @@ export const MyHeader = () => {
                         </div>
 
                         {/* mobile avatar dropdown*/}
-                        <div onClick={mainMenuDropdown} className='p-1 md:tw-hidden hover:tw-bg-gray-200'>
+                        <div onClick={secondaryMenuLeftDropdown} className='p-1 md:tw-hidden hover:tw-bg-gray-200'>
                             <div className='tw-cursor-pointer tw-h-12 tw-w-12 tw-rounded-full tw-shadow-all tw-overflow-hidden'>
                                 <img className='tw-w-full tw-h-full tw-object-cover' src={profileImageObj.get('imageUrlSmall')} alt="" />  
                             </div>
@@ -88,15 +92,17 @@ export const MyHeader = () => {
                                 <path d="M7,4 L7,8 L11,8 L11,10 L5,10 L5,4 L7,4 Z" fill="currentColor" transform="translate(8.000000, 7.000000) rotate(-45.000000) translate(-8.000000, -7.000000) "></path>
                             </svg>
                             <div>
-                                {show ? <DropDown  />: null }
+                            {show && <div> <DropDown /></div>}
                             </div>
                         </div>
                     </div>
                     
                 </div>
             </div>
-            <div>{show ? <MobileDropDownRight  />: null }</div>
-            <div>{showLeftDrop ? <MobileDropDownLeft  />: null }</div>
+            {showRightDrop ? <MobileDropDownRight/>:null}
+            {showLeftDrop ? <MobileDropDownLeft/>:null}
+            {/* {showRightDrop && <div ref={menuRightRef}> <MobileDropDownRight  /></div>}
+            {showLeftDrop && <div ref={menuLeftRef}> <MobileDropDownLeft  /></div>} */}
         </div>
     )
 
