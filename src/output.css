@@ -294,8 +294,23 @@
           text-decoration-line: none !important;
 }
 
-.tw-fixed {
-  position: fixed !important;
+.tw-mobile-dropdown-right > a > div {
+  cursor: pointer !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  padding-left: 1.25rem !important;
+}
+
+.tw-mobile-dropdown-right > a > div:hover {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-mobile-dropdown-right > a {
+  --tw-text-opacity: 1 !important;
+  color: rgb(31 41 55 / var(--tw-text-opacity)) !important;
+  -webkit-text-decoration-line: none !important;
+          text-decoration-line: none !important;
 }
 
 .tw-absolute {
@@ -326,6 +341,10 @@
   right: 0px !important;
 }
 
+.tw-top-24 {
+  top: 6rem !important;
+}
+
 .tw-bottom-0 {
   bottom: 0px !important;
 }
@@ -354,38 +373,6 @@
   left: 1.75rem !important;
 }
 
-.tw-top-12 {
-  top: 3rem !important;
-}
-
-.tw-right-0 {
-  right: 0px !important;
-}
-
-.tw-top-12 {
-  top: 3rem !important;
-}
-
-.tw-right-0 {
-  right: 0px !important;
-}
-
-.tw-top-12 {
-  top: 3rem !important;
-}
-
-.tw-right-0 {
-  right: 0px !important;
-}
-
-.tw-top-5 {
-  top: 1.25rem !important;
-}
-
-.tw-top-20 {
-  top: 5rem !important;
-}
-
 .tw-top-24 {
   top: 6rem !important;
 }
@@ -394,20 +381,16 @@
   z-index: 50 !important;
 }
 
+.tw-z-20 {
+  z-index: 20 !important;
+}
+
 .tw-z-40 {
   z-index: 40 !important;
 }
 
 .tw-z-30 {
   z-index: 30 !important;
-}
-
-.tw-z-50 {
-  z-index: 50 !important;
-}
-
-.tw-z-20 {
-  z-index: 20 !important;
 }
 
 .tw-mx-auto {
@@ -485,16 +468,8 @@
   width: 3rem !important;
 }
 
-.tw-w-44 {
-  width: 11rem !important;
-}
-
 .tw-w-full {
   width: 100% !important;
-}
-
-.tw-w-96 {
-  width: 24rem !important;
 }
 
 .tw-cursor-pointer {
@@ -556,10 +531,6 @@
   border-radius: 0.5rem !important;
 }
 
-.tw-rounded-md {
-  border-radius: 0.375rem !important;
-}
-
 .tw-border-none {
   border-style: none !important;
 }
@@ -597,81 +568,6 @@
 .tw-bg-primaryNavy {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 12 69 / var(--tw-bg-opacity)) !important;
-}
-
-.tw-bg-white {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
-}
-
-.tw-bg-red-300 {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity)) !important;
-}
-
-.tw-bg-white {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
-}
-
-.tw-bg-red-300 {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity)) !important;
-}
-
-.tw-bg-white {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
-}
-
-.tw-bg-pink-400 {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(244 114 182 / var(--tw-bg-opacity)) !important;
-}
-
-.tw-bg-white {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
-}
-
-.tw-bg-pink-300 {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(249 168 212 / var(--tw-bg-opacity)) !important;
-}
-
-.tw-bg-white {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
-}
-
-.tw-bg-pink-300 {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(249 168 212 / var(--tw-bg-opacity)) !important;
-}
-
-.tw-bg-white {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
-}
-
-.tw-bg-pink-300 {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(249 168 212 / var(--tw-bg-opacity)) !important;
-}
-
-.tw-bg-white {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
-}
-
-.tw-bg-pink-300 {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(249 168 212 / var(--tw-bg-opacity)) !important;
-}
-
-.tw-bg-white {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
 }
 
 .tw-object-cover {
@@ -737,6 +633,11 @@
 .tw-px-2 {
   padding-left: 0.5rem !important;
   padding-right: 0.5rem !important;
+}
+
+.tw-py-4 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
 }
 
 .tw-py-2 {
@@ -806,6 +707,11 @@
 .tw-text-white {
   --tw-text-opacity: 1 !important;
   color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+}
+
+.tw-text-gray-800 {
+  --tw-text-opacity: 1 !important;
+  color: rgb(31 41 55 / var(--tw-text-opacity)) !important;
 }
 
 .tw-no-underline {
