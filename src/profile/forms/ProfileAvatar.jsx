@@ -45,7 +45,7 @@ class ProfileAvatar extends React.Component {
   renderPending() {
     return (
       <div
-        className="tw-absolute w-100 h-100 d-flex justify-content-center align-items-center rounded-circle"
+        className="tw-absolute tw-h-full tw-w-full d-flex justify-content-center align-items-center rounded-circle"
         style={{ backgroundColor: 'rgba(0,0,0,.65)' }}
       >
         <div className="spinner-border tw-z-40 tw-text-primaryCrimson" role="status" />
@@ -117,7 +117,7 @@ class ProfileAvatar extends React.Component {
     ) : (
       <img
         data-hj-suppress
-        className="overflow-hidden tw-absolute tw-top-0 tw-left-0 tw-h-44 tw-shadow-all d-block rounded-circle"
+        className="overflow-hidden tw-h-full tw-w-full tw-absolute tw-top-0 tw-left-0 tw-shadow-all d-block rounded-circle"
         style={{ objectFit: 'cover' }}
         alt={intl.formatMessage(messages['profile.image.alt.attribute'])}
         src={this.props.src}

@@ -212,7 +212,7 @@ class ProfilePage extends React.Component {
           {/* profile card */}
           <div className='tw-mb-20 tw-mt-30 tw-flex lg:tw-flex-row tw-flex-col tw-items-center tw-rounded-lg tw-px-10 tw-py-10 tw-w-full tw-shadow-all'>
                 
-                <div className='tw-relative tw-rounded-full tw-overflow-hidden tw-h-44 tw-w-44'>
+                <div className='overflow-hidden tw-relative tw-rounded-full tw-h-44 tw-w-44'>
                   <ProfileAvatar
                         src={profileImage.src}
                         isDefault={profileImage.isDefault}
@@ -233,15 +233,15 @@ class ProfilePage extends React.Component {
                   <h3 className='tw-uppercase tw-text-sm tw-text-gray-700'>member since</h3>
                   <p><DateJoined date={this.props.dateJoined} /></p>
                 </div>
-                <div className='lg:tw-ml-10'>
+                <div className='lg:tw-ml-10 -tw-ml-10'>
                   <h3 className='tw-uppercase tw-text-sm tw-text-gray-700'>enrolled</h3>
                   <p>Lorem, ipsum.</p>
                 </div>
-                <div className='lg:tw-ml-10'>
+                <div className='lg:tw-ml-10 -tw-ml-10'>
                   <h3 className='tw-uppercase tw-text-sm tw-text-gray-700'>Completed</h3>
                   <p>Lorem, ipsum.</p>
                 </div>
-                <div className='lg:tw-ml-10'>
+                <div className='lg:tw-ml-10 -tw-ml-10'>
                   <h3 className='tw-uppercase tw-text-sm tw-text-gray-700'>Certificate</h3>
                   <p>Lorem, ipsum.</p>
                 </div>
