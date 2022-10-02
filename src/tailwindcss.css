@@ -48,4 +48,12 @@
     .tw-main-dropdown > a {
         @apply tw-no-underline !important;
     }
+
+    .tw-mobile-dropdown-right > a > div {
+        @apply tw-cursor-pointer tw-py-2 hover:tw-bg-gray-200 tw-pl-5 !important;
+    }
+
+    .tw-mobile-dropdown-right > a {
+        @apply tw-no-underline tw-text-gray-800 !important;
+    }
 }
