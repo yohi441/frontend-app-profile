@@ -294,12 +294,28 @@
           text-decoration-line: none !important;
 }
 
+.tw-fixed {
+  position: fixed !important;
+}
+
 .tw-absolute {
   position: absolute !important;
 }
 
 .tw-relative {
   position: relative !important;
+}
+
+.tw-inset-0 {
+  top: 0px !important;
+  right: 0px !important;
+  bottom: 0px !important;
+  left: 0px !important;
+}
+
+.tw-inset-x-0 {
+  left: 0px !important;
+  right: 0px !important;
 }
 
 .tw-top-12 {
@@ -338,6 +354,42 @@
   left: 1.75rem !important;
 }
 
+.tw-top-12 {
+  top: 3rem !important;
+}
+
+.tw-right-0 {
+  right: 0px !important;
+}
+
+.tw-top-12 {
+  top: 3rem !important;
+}
+
+.tw-right-0 {
+  right: 0px !important;
+}
+
+.tw-top-12 {
+  top: 3rem !important;
+}
+
+.tw-right-0 {
+  right: 0px !important;
+}
+
+.tw-top-5 {
+  top: 1.25rem !important;
+}
+
+.tw-top-20 {
+  top: 5rem !important;
+}
+
+.tw-top-24 {
+  top: 6rem !important;
+}
+
 .tw-z-50 {
   z-index: 50 !important;
 }
@@ -348,6 +400,14 @@
 
 .tw-z-30 {
   z-index: 30 !important;
+}
+
+.tw-z-50 {
+  z-index: 50 !important;
+}
+
+.tw-z-20 {
+  z-index: 20 !important;
 }
 
 .tw-mx-auto {
@@ -425,6 +485,18 @@
   width: 3rem !important;
 }
 
+.tw-w-44 {
+  width: 11rem !important;
+}
+
+.tw-w-full {
+  width: 100% !important;
+}
+
+.tw-w-96 {
+  width: 24rem !important;
+}
+
 .tw-cursor-pointer {
   cursor: pointer !important;
 }
@@ -484,13 +556,12 @@
   border-radius: 0.5rem !important;
 }
 
-.tw-border-none {
-  border-style: none !important;
+.tw-rounded-md {
+  border-radius: 0.375rem !important;
 }
 
-.tw-border-primaryCrimson {
-  --tw-border-opacity: 1 !important;
-  border-color: rgb(184 9 52 / var(--tw-border-opacity)) !important;
+.tw-border-none {
+  border-style: none !important;
 }
 
 .tw-border-primaryNavy {
@@ -526,6 +597,81 @@
 .tw-bg-primaryNavy {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 12 69 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-bg-white {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-bg-red-300 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-bg-white {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-bg-red-300 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-bg-white {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-bg-pink-400 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(244 114 182 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-bg-white {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-bg-pink-300 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(249 168 212 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-bg-white {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-bg-pink-300 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(249 168 212 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-bg-white {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-bg-pink-300 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(249 168 212 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-bg-white {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-bg-pink-300 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(249 168 212 / var(--tw-bg-opacity)) !important;
+}
+
+.tw-bg-white {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
 }
 
 .tw-object-cover {
@@ -593,6 +739,11 @@
   padding-right: 0.5rem !important;
 }
 
+.tw-py-2 {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
 .tw-pl-5 {
   padding-left: 1.25rem !important;
 }
@@ -603,6 +754,10 @@
 
 .tw-pb-6 {
   padding-bottom: 1.5rem !important;
+}
+
+.tw-pl-5 {
+  padding-left: 1.25rem !important;
 }
 
 .tw-text-xl {
@@ -692,6 +847,11 @@
 .hover\:tw-bg-primaryNavy:hover {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 12 69 / var(--tw-bg-opacity)) !important;
+}
+
+.hover\:tw-bg-gray-200:hover {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity)) !important;
 }
 
 .hover\:tw-text-white:hover {
