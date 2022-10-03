@@ -32,7 +32,7 @@ subscribe(APP_READY, () => {
   ReactDOM.render(
     <AppProvider store={configureStore()}>
       <MyHeader />
-      <main>
+      <main className='tw-overflow-x-hidden'>
         <Switch>
           <Route path="/u/:username" component={ProfilePage} />
           <Route path="/notfound" component={NotFoundPage} />
