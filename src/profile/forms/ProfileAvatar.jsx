@@ -113,11 +113,11 @@ class ProfileAvatar extends React.Component {
     const { intl } = this.props;
 
     return this.props.isDefault ? (
-      <DefaultAvatar className="tw-top-0 tw-absolute text-muted tw-h-full tw-w-full tw-overflow-hidden" role="img" aria-hidden focusable="false" viewBox="0 0 24 24" />
+      <DefaultAvatar className="text-muted tw-overflow-hidden" role="img" aria-hidden focusable="false" viewBox="0 0 24 24" />
     ) : (
       <img
         data-hj-suppress
-        className="overflow-hidden tw-h-full tw-w-full tw-absolute tw-top-0 tw-left-0 tw-shadow-all d-block rounded-circle"
+        className="overflow-hidden tw-w-full tw-h-full tw-shadow-all d-block rounded-circle"
         style={{ objectFit: 'cover' }}
         alt={intl.formatMessage(messages['profile.image.alt.attribute'])}
         src={this.props.src}
@@ -128,7 +128,7 @@ class ProfileAvatar extends React.Component {
   render() {
     return (
       <div className="">
-        <div className="">
+        <div className="tw-absolute tw-inset-0">
           {this.props.savePhotoState === 'pending' ? this.renderPending() : this.renderMenu() }
           {this.renderAvatar()}
         </div>
