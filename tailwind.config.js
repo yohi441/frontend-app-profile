@@ -7,6 +7,10 @@ module.exports = {
         primaryCrimson: '#B80934',
         primaryNavy: '#120C45',
       },
+      fontFamily: {
+        plexSerif: "'IBM Plex Serif', serif",
+        nunito: "'Nunito Sans', sans-serif",
+      },
     },
   },
   plugins: [],

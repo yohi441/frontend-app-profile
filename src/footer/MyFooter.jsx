@@ -11,7 +11,7 @@ export const MyFooter = () => {
     const icons8Logo = `${lmsBaseUrl}/static/hackademy-theme/images/icons8-logo.png`
     
     return (
-        <div className="tw-bg-gray-100">
+        <div className="tw-bg-gray-100 tw-font-nunito">
            
             <footer className="tw-py-20 tw-mx-auto tw-container tw-flex tw-flex-col lg:tw-flex-row tw-items-center lg:tw-items-start tw-px-5 tw-gap-5 lg:tw-justify-between">
                 <div>
@@ -23,7 +23,7 @@ export const MyFooter = () => {
                 </div>
 
                 <div className='tw-mt-8 lg:tw-mt-0'>
-                    <div className='tw-text-xl tw-font-semibold tw-text-primaryCrimson'>Courses Offered</div>
+                    <div className='tw-text-2xl tw-font-semibold tw-text-primaryCrimson'>Courses Offered</div>
                     <div className="tw-flex tw-gap-20">
                         <div>
                             <ul className='tw-footer-link tw-list-none'>
@@ -52,15 +52,35 @@ export const MyFooter = () => {
 
                     </div>
                 </div>
+
                 
-                <div>
+                {/* only visible in mobile view */}
+                <div className='lg:tw-hidden tw-gap-40 tw-flex'>
+                    <div className=''>
+                        <div className='tw-text-2xl tw-font-semibold tw-text-primaryCrimson'>Contact Us</div>
+                        <div className='tw-text-sm tw-font-semibold tw-flex tw-items-center tw-gap-2'><span className='fa-solid fa-envelope'></span> hello@hackademy.ph </div>
+                        <div className='tw-text-sm tw-font-semibold tw-flex tw-items-center tw-gap-2'><span className='fa-solid fa-phone'></span> (082) 222 2222 </div>
+                        
+                    </div>
+                    
+                    {/* this element is hidden */}
+                    <div className='tw-opacity-0'>
+                        <div className='tw-text-2xl tw-font-semibold tw-text-primaryCrimson'>Contact Us</div>
+                        <ul className='tw-list-none'>
+                            <li className='tw-text-sm tw-font-semibold -tw-ml-10'><span className='fa-solid fa-envelope'></span> hello@hackademy.ph </li>
+                            <li className='tw-text-sm tw-font-semibold -tw-ml-10'><span className='fa-solid fa-phone'></span> (082) 222 2222 </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                
+                <div className=''>
                     <div>
-                        <div className='-tw-ml-28 lg:tw-ml-0'>
-                            <div className='tw-text-xl tw-font-semibold tw-text-primaryCrimson'>Contact Us</div>
-                            <ul className='tw-list-none'>
-                                <li className='tw-text-sm tw-font-semibold -tw-ml-10'><img className="bi-envelope-fill" /> hello@hackademy.ph </li>
-                                <li className='tw-text-sm tw-font-semibold -tw-ml-10'><img className="bi-telephone-fill" /> (082) 222 2222 </li>
-                            </ul>
+                        <div className='tw-hidden lg:tw-block'>
+                            <div className='tw-text-2xl tw-font-semibold tw-text-primaryCrimson'>Contact Us</div>
+                            <div className='tw-text-sm tw-font-semibold tw-flex tw-items-center tw-gap-2'><span className='fa-solid fa-envelope'></span> hello@hackademy.ph </div>
+                            <div className='tw-text-sm tw-font-semibold tw-flex tw-items-center tw-gap-2'><span className='fa-solid fa-phone'></span> (082) 222 2222 </div>
                         </div>
 
                         <div className="tw-flex tw-gap-3 tw-mt-20 tw-items-center">

@@ -1,7 +1,7 @@
 import '../output.css';
 import { getConfig } from '@edx/frontend-platform';
 import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { DropDown } from './DropDown';
 import BurgerIcon from './BurgerIcon';
 import MobileDropDownLeft from './MobileDropDownLeft';
@@ -46,7 +46,7 @@ export const MyHeader = () => {
 
 
     return (
-        <div className='tw-relative'>
+        <div className='tw-relative tw-font-nunito'>
             <div className="tw-container tw-mx-auto tw-py-5">
                 <div className='tw-wrapper tw-items-center tw-flex tw-justify-between'>
                    
@@ -96,7 +96,7 @@ export const MyHeader = () => {
                             <svg width="20px" height="20px" viewBox="0 0 16 16" version="1.1" role="img" aria-hidden="true" focusable="false">
                                 <path d="M7,4 L7,8 L11,8 L11,10 L5,10 L5,4 L7,4 Z" fill="currentColor" transform="translate(8.000000, 7.000000) rotate(-45.000000) translate(-8.000000, -7.000000) "></path>
                             </svg>
-                            <div>
+                            <div className={`tw-transition tw-duration-150 tw-ease-in ${show ? 'tw-opacity-100' : 'tw-opacity-0'}`}>
                             {show? <DropDown closeDropDown={closeDropDown} />: null}
                             </div>
                         </div>
@@ -104,9 +104,9 @@ export const MyHeader = () => {
                     
                 </div>
             </div>
+            <div className={`tw-transition tw-duration-150 tw-ease-in ${showLeftDrop ? 'tw-opacity-100' : 'tw-opacity-0'}`}>{showLeftDrop ? <MobileDropDownLeft closeDropDown={closeLeftDropDown} />:null}</div>
             
-            {showLeftDrop ? <MobileDropDownLeft closeDropDown={closeLeftDropDown} />:null}
-            {showRightDrop ? <MobileDropDownRight closeDropDown={closeRightDropDown} />:null}
+            <div className={`tw-transition tw-duration-150 tw-ease-in ${showRightDrop ? 'tw-opacity-100' : 'tw-opacity-0'}`}>{showRightDrop ? <MobileDropDownRight closeDropDown={closeRightDropDown} />:null}</div>
         </div>
     )
 
