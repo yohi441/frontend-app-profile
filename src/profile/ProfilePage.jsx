@@ -128,7 +128,7 @@ class ProfilePage extends React.Component {
     }
 
     return (
-      <Hyperlink className="btn btn-primary tw-rounded-full hover:tw-bg-red-600 tw-bg-primaryCrimson tw-text-base tw-border-none" destination={this.state.viewMyRecordsUrl} target="_blank">
+      <Hyperlink className="btn btn-primary tw-rounded-full tw-bg-primaryNavy hover:tw-opacity-80 tw-text-base tw-border-none" destination={this.state.viewMyRecordsUrl} target="_blank">
         {this.props.intl.formatMessage(messages['profile.viewMyRecords'])}
       </Hyperlink>
     );

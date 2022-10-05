@@ -6,6 +6,7 @@ import { DropDown } from './DropDown';
 import BurgerIcon from './BurgerIcon';
 import MobileDropDownLeft from './MobileDropDownLeft';
 import MobileDropDownRight from './MobileDropDownRight';
+import { useEffect } from 'react';
 
 
 
@@ -14,15 +15,16 @@ export const MyHeader = () => {
     let lmsBaseUrl = getConfig().LMS_BASE_URL;
     let dashboardUrl = `${lmsBaseUrl}/dashboard/`;
     let hackademyLogo = `${lmsBaseUrl}/static/hackademy-theme/images/logo.png`;
-    let profileImage = getAuthenticatedUser().profileImage;
-    let username = getAuthenticatedUser().username;
+    const defaultImg = `${lmsBaseUrl}/static/images/profiles/default_30.png`
+    
+    
+    const [data, setData] = useState([])
 
-    // this code is use for getting the Avatar.url
-    const profileImageObj = new Map();
-    for (const key in profileImage) {
-        profileImageObj.set(key, profileImage[key]);
-    }
-
+    useEffect(()=>{
+        setData(getAuthenticatedUser());
+        console.log(data)
+    },[data])
+  
     // this code is use for toggling the dropdown menu
     const [show, setShow] = useState(false)
     const [showLeftDrop, setShowLeftDrop] = useState(false)
@@ -71,13 +73,13 @@ export const MyHeader = () => {
                         </div>
                         {/* username */}
                         <div className='tw-hidden md:tw-block tw-cursor-pointer hover:tw-bg-gray-200 tw-px-1'>
-                            <a href={dashboardUrl} className='tw-text-primaryNavy tw-no-underline'>{username}</a>
+                            <a href={dashboardUrl} className='tw-text-primaryNavy tw-no-underline'>{data.username ? data.username : 'fetching.. user' }</a>
                         </div>
 
                         {/* mobile avatar dropdown*/}
                         <div onClick={ () => { setShowRightDrop(true) } } className='p-1 tw-relative md:tw-hidden hover:tw-bg-gray-200'>
                             <div className='tw-cursor-pointer tw-h-12 tw-w-12 tw-rounded-full tw-shadow-all tw-overflow-hidden'>
-                                <img className='tw-w-full tw-h-full tw-object-cover' src={profileImageObj.get('imageUrlSmall')} alt="" />  
+                                <img className='tw-w-full tw-h-full tw-object-cover' src={data.profileImage?.imageUrlSmall ? data.profileImage.imageUrlSmall : defaultImg } alt="" />  
                             </div>
                             
                         </div>
@@ -86,7 +88,7 @@ export const MyHeader = () => {
                         <div className='p-1 tw-hidden md:tw-block hover:tw-bg-gray-200'>
                             <div className='tw-cursor-pointer tw-h-12 tw-w-12 tw-rounded-full tw-shadow-all tw-overflow-hidden'>
                                 <a href={dashboardUrl}>
-                                    <img className='tw-w-full tw-h-full tw-object-cover' src={profileImageObj.get('imageUrlSmall')} alt="" />
+                                    <img className='tw-w-full tw-h-full tw-object-cover' src={data.profileImage?.imageUrlSmall ? data.profileImage.imageUrlSmall : defaultImg } alt="" />
                                 </a>
                             </div>
                         </div>
