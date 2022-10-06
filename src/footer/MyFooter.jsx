@@ -9,16 +9,22 @@ export const MyFooter = () => {
     const tesdaLogo = `${lmsBaseUrl}/static/hackademy-theme/images/tesda-logo.png`
     const icons8Logo = `${lmsBaseUrl}/static/hackademy-theme/images/icons8-logo.png`
     let hackademyLogo = `${lmsBaseUrl}/static/hackademy-theme/images/logo.png`;
+    const openedxLogo = `${lmsBaseUrl}/static/hackademy-theme/images/openedx-logo.png`;
     
     return (
         <div className="tw-bg-gray-100 tw-font-nunito">
            
             <footer className="tw-py-20 tw-mx-auto tw-container tw-flex tw-flex-col lg:tw-flex-row tw-items-center lg:tw-items-start tw-px-5 tw-gap-5 lg:tw-justify-between">
-                <div>
+                <div className='tw-flex-col'>
                     <div className='tw-w-30 tw-h-11'>
                         <img className='tw-w-full tw-h-full'
                             src={hackademyLogo}
                             alt="hackademy-logo" />
+                    </div>
+                    <div className='tw-w-28 tw-h-16'>
+                        <img className="tw-object-contain tw-h-full tw-w-full"
+                            src={openedxLogo} 
+                            alt="openedx-logo" />
                     </div>
                 </div>
 
