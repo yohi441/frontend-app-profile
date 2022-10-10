@@ -8,6 +8,8 @@ import { AppContext } from '@edx/frontend-platform/react';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { Alert, Hyperlink } from '@edx/paragon';
 
+
+
 // Actions
 import {
   fetchProfile,
@@ -20,7 +22,6 @@ import {
 } from './data/actions';
 
 // Components
-import ProfileAvatar from './forms/ProfileAvatar';
 import Name from './forms/Name';
 import Country from './forms/Country';
 import PreferredLanguage from './forms/PreferredLanguage';
@@ -33,7 +34,7 @@ import DateJoined from './DateJoined';
 import UsernameDescription from './UsernameDescription';
 import PageLoading from './PageLoading';
 import Banner from './Banner';
-import HackademyCardLogo from '../components/HackademyCardLogo';
+import ProfileCard from '../components/ProfileCard';
 
 // Selectors
 import { profilePageSelector } from './data/selectors';
@@ -70,8 +71,7 @@ class ProfilePage extends React.Component {
     });
   }
 
-
-
+  
   handleSaveProfilePhoto(formData) {
     this.props.saveProfilePhoto(this.context.authenticatedUser.username, formData);
   }
@@ -108,7 +108,7 @@ class ProfilePage extends React.Component {
 
     return recordsUrl;
   }
-
+  
   isYOBDisabled() {
     const { yearOfBirth } = this.props;
     const currentYear = new Date().getFullYear();
@@ -207,54 +207,24 @@ class ProfilePage extends React.Component {
       submitHandler: this.handleSubmit,
       changeHandler: this.handleChange,
     };
-
+    
+    const data = {
+      src: profileImage.src,
+      isDefault: profileImage.isDefault,
+      onSave: this.handleSaveProfilePhoto,
+      onDelete: this.handleDeleteProfilePhoto,
+      savePhotoState: this.props.savePhotoState,
+      isEditable: this.isAuthenticatedUserProfile() && !requiresParentalConsent,
+      dateJoined: this.props.dateJoined,
+      name: this.props.name,
+      username: this.props.username,
+    }
+    
     return (
       <div className="tw-container tw-font-nunito tw-mx-auto tw-mt-20">
         <div className="pt-4 mb-4 tw-px-5 row align-items-center pt-md-0 mb-md-0">
           {/* profile card */}
-          <div className='tw-relative tw-overflow-hidden tw-mb-20 tw-mt-30 tw-flex lg:tw-flex-row tw-flex-col tw-items-center tw-rounded-lg tw-px-10 tw-py-10 tw-w-full tw-shadow-all'>
-                
-                <div className='overflow-hidden tw-flex-none tw-rounded-full tw-shadow-all tw-relative tw-w-[176px] tw-h-[176px]'>
-                  <ProfileAvatar
-                        src={profileImage.src}
-                        isDefault={profileImage.isDefault}
-                        onSave={this.handleSaveProfilePhoto}
-                        onDelete={this.handleDeleteProfilePhoto}
-                        savePhotoState={this.props.savePhotoState}
-                        isEditable={this.isAuthenticatedUserProfile() && !requiresParentalConsent}
-                      />
-                </div>
-
-            
-
-                <div className='lg:tw-ml-8 tw-mt-2 lg:tw-mt-0'>
-                  <h3 className='tw-text-primaryNavy tw-font-plexSerif'>{this.props.name}</h3>
-                  <p>@{this.props.username}</p>
-                </div>
-                <div className='lg:tw-ml-28 tw-mt-8 lg:tw-mt-0'>
-                  <h3 className='tw-uppercase tw-text-sm tw-text-gray-700'>member since</h3>
-                  <p><DateJoined date={this.props.dateJoined} /></p>
-                </div>
-                <div className='lg:tw-ml-10 -tw-ml-10'>
-                  <h3 className='tw-uppercase tw-text-sm tw-text-gray-700'>enrolled</h3>
-                  <p>Lorem, ipsum.</p>
-                </div>
-                <div className='lg:tw-ml-10 -tw-ml-10'>
-                  <h3 className='tw-uppercase tw-text-sm tw-text-gray-700'>Completed</h3>
-                  <p>Lorem, ipsum.</p>
-                </div>
-                <div className='lg:tw-ml-10 -tw-ml-10'>
-                  <h3 className='tw-uppercase tw-text-sm tw-text-gray-700'>Certificate</h3>
-                  <p>Lorem, ipsum.</p>
-                </div>
-
-                <div className='tw-opacity-50 tw-absolute tw-bottom-40 tw-right-32 lg:tw-right-28 lg:tw-top-6'>
-                  <HackademyCardLogo />
-                </div>
-                
-               
-
-            </div>
+          <ProfileCard props={data}/>
           {/* <div className="col-auto col-md-4 col-lg-3">
           <ProfileAvatar
                 className="mb-md-3"

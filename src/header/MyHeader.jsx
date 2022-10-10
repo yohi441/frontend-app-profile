@@ -1,6 +1,7 @@
 import '../output.css';
 import { getConfig } from '@edx/frontend-platform';
 import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
+import { getAuthenticatedHttpClient as getHttpClient } from '@edx/frontend-platform/auth';
 import { useState } from 'react';
 import { DropDown } from './DropDown';
 import BurgerIcon from './BurgerIcon';
@@ -10,20 +11,29 @@ import { useEffect } from 'react';
 
 
 
+async function getEnrollment(){
+    const { data } = await getHttpClient().get(`${getConfig().LMS_BASE_URL}/api/enrollment/v1/enrollment`);
+    const enroll = await data.length
+    return enroll;
+}
+
+
+
 
 export const MyHeader = () => {
     let lmsBaseUrl = getConfig().LMS_BASE_URL;
     let dashboardUrl = `${lmsBaseUrl}/dashboard/`;
     let hackademyLogo = `${lmsBaseUrl}/static/hackademy-theme/images/logo.png`;
-    const defaultImg = `${lmsBaseUrl}/static/images/profiles/default_30.png`
+    const defaultImg = `${lmsBaseUrl}/static/images/profiles/default_30.png`;
     
-    
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
+
 
     useEffect(()=>{
         setData(getAuthenticatedUser());
-        console.log(data)
+        
     },[data])
+    
   
     // this code is use for toggling the dropdown menu
     const [show, setShow] = useState(false)
@@ -59,7 +69,7 @@ export const MyHeader = () => {
                     <a className='tw-no-underline' href={dashboardUrl}>
                         <div className='tw-cursor-pointer tw-h-10 tw-flex tw-gap-5 tw-items-center'>
                             <img className='tw-w-full tw-h-full' src={hackademyLogo} alt="hackademy-logo" />
-                            <div className='tw-border-course tw-cursor-pointer tw-hidden md:tw-block tw-border-bottom'>
+                            <div className='tw-border-course tw-py-4 tw-px-5 tw-cursor-pointer tw-hidden md:tw-block tw-border-bottom'>
                                 <a className="tw-no-underline tw-text-primaryNavy" href={dashboardUrl}>Course</a>
                             </div>
                         </div>  
@@ -91,6 +101,7 @@ export const MyHeader = () => {
                                     <img className='tw-w-full tw-h-full tw-object-cover' src={data.profileImage?.imageUrlSmall ? data.profileImage.imageUrlSmall : defaultImg } alt="" />
                                 </a>
                             </div>
+                            
                         </div>
 
                         {/* dropdown button */}
