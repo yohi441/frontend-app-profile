@@ -17,6 +17,20 @@ async function getEnrollment(){
     return enroll;
 }
 
+async function getAvatar(){
+    const data = await getAuthenticatedUser();
+    
+    if (data.profileImage) {
+        const img = await data.profileImage.imageUrlSmall;
+        return img;
+    }
+    else {
+        const data = getConfig().LMS_BASE_URL;
+        const defaultImg = `${data}/static/images/profiles/default_30.png`;
+        return defaultImg;
+    }
+    
+}
 
 
 
@@ -27,13 +41,18 @@ export const MyHeader = () => {
     const defaultImg = `${lmsBaseUrl}/static/images/profiles/default_30.png`;
     
     const [data, setData] = useState([]);
+    const [avatarImg, setAvatarImg] = useState("");
 
 
     useEffect(()=>{
         setData(getAuthenticatedUser());
+        getAvatar().then((value) => {
+            setAvatarImg(value);
+        })
         
-    },[data])
+    },[data, avatarImg])
     
+    console.log(avatarImg)
   
     // this code is use for toggling the dropdown menu
     const [show, setShow] = useState(false)

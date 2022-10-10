@@ -333,6 +333,14 @@
   right: 0px !important;
 }
 
+.tw-bottom-40 {
+  bottom: 10rem !important;
+}
+
+.tw-right-32 {
+  right: 8rem !important;
+}
+
 .tw-top-12 {
   top: 3rem !important;
 }
@@ -343,14 +351,6 @@
 
 .tw-top-24 {
   top: 6rem !important;
-}
-
-.tw-bottom-40 {
-  bottom: 10rem !important;
-}
-
-.tw-right-32 {
-  right: 8rem !important;
 }
 
 .tw-bottom-0 {
@@ -394,6 +394,14 @@
   margin-right: auto !important;
 }
 
+.tw-mb-20 {
+  margin-bottom: 5rem !important;
+}
+
+.tw-mt-2 {
+  margin-top: 0.5rem !important;
+}
+
 .tw-mt-8 {
   margin-top: 2rem !important;
 }
@@ -404,14 +412,6 @@
 
 .tw-mt-20 {
   margin-top: 5rem !important;
-}
-
-.tw-mb-20 {
-  margin-bottom: 5rem !important;
-}
-
-.tw-mt-2 {
-  margin-top: 0.5rem !important;
 }
 
 .tw-flex {
@@ -426,6 +426,10 @@
 
 .tw-h-52 {
   height: 13rem !important;
+}
+
+.tw-h-\[176px\] {
+  height: 176px !important;
 }
 
 .tw-h-16 {
@@ -444,10 +448,6 @@
   height: 3rem !important;
 }
 
-.tw-h-\[176px\] {
-  height: 176px !important;
-}
-
 .tw-min-h-screen {
   min-height: 100vh !important;
 }
@@ -460,6 +460,10 @@
   width: 100% !important;
 }
 
+.tw-w-\[176px\] {
+  width: 176px !important;
+}
+
 .tw-w-28 {
   width: 7rem !important;
 }
@@ -470,10 +474,6 @@
 
 .tw-w-12 {
   width: 3rem !important;
-}
-
-.tw-w-\[176px\] {
-  width: 176px !important;
 }
 
 .tw-flex-none {
@@ -541,16 +541,16 @@
   overflow-x: hidden !important;
 }
 
-.tw-rounded-md {
-  border-radius: 0.375rem !important;
+.tw-rounded-lg {
+  border-radius: 0.5rem !important;
 }
 
 .tw-rounded-full {
   border-radius: 9999px !important;
 }
 
-.tw-rounded-lg {
-  border-radius: 0.5rem !important;
+.tw-rounded-md {
+  border-radius: 0.375rem !important;
 }
 
 .tw-border-none {
@@ -597,6 +597,16 @@
      object-fit: cover !important;
 }
 
+.tw-px-10 {
+  padding-left: 2.5rem !important;
+  padding-right: 2.5rem !important;
+}
+
+.tw-py-10 {
+  padding-top: 2.5rem !important;
+  padding-bottom: 2.5rem !important;
+}
+
 .tw-py-20 {
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
@@ -622,24 +632,9 @@
   padding-bottom: 1.25rem !important;
 }
 
-.tw-px-3 {
-  padding-left: 0.75rem !important;
-  padding-right: 0.75rem !important;
-}
-
 .tw-px-1 {
   padding-left: 0.25rem !important;
   padding-right: 0.25rem !important;
-}
-
-.tw-px-10 {
-  padding-left: 2.5rem !important;
-  padding-right: 2.5rem !important;
-}
-
-.tw-py-10 {
-  padding-top: 2.5rem !important;
-  padding-bottom: 2.5rem !important;
 }
 
 .tw-py-3 {
@@ -674,22 +669,22 @@
   padding-bottom: 1.5rem !important;
 }
 
-.tw-font-nunito {
-  font-family: 'Nunito Sans', sans-serif !important;
-}
-
 .tw-font-plexSerif {
   font-family: 'IBM Plex Serif', serif !important;
 }
 
-.tw-text-2xl {
-  font-size: 1.5rem !important;
-  line-height: 2rem !important;
+.tw-font-nunito {
+  font-family: 'Nunito Sans', sans-serif !important;
 }
 
 .tw-text-sm {
   font-size: 0.875rem !important;
   line-height: 1.25rem !important;
+}
+
+.tw-text-2xl {
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
 }
 
 .tw-text-base {
@@ -705,16 +700,6 @@
   text-transform: uppercase !important;
 }
 
-.tw-text-primaryCrimson {
-  --tw-text-opacity: 1 !important;
-  color: rgb(184 9 52 / var(--tw-text-opacity)) !important;
-}
-
-.tw-text-gray-800 {
-  --tw-text-opacity: 1 !important;
-  color: rgb(31 41 55 / var(--tw-text-opacity)) !important;
-}
-
 .tw-text-primaryNavy {
   --tw-text-opacity: 1 !important;
   color: rgb(18 12 69 / var(--tw-text-opacity)) !important;
@@ -723,6 +708,16 @@
 .tw-text-gray-700 {
   --tw-text-opacity: 1 !important;
   color: rgb(55 65 81 / var(--tw-text-opacity)) !important;
+}
+
+.tw-text-primaryCrimson {
+  --tw-text-opacity: 1 !important;
+  color: rgb(184 9 52 / var(--tw-text-opacity)) !important;
+}
+
+.tw-text-gray-800 {
+  --tw-text-opacity: 1 !important;
+  color: rgb(31 41 55 / var(--tw-text-opacity)) !important;
 }
 
 .tw-text-red-500 {
@@ -740,16 +735,16 @@
           text-decoration-line: none !important;
 }
 
+.tw-opacity-50 {
+  opacity: 0.5 !important;
+}
+
 .tw-opacity-0 {
   opacity: 0 !important;
 }
 
 .tw-opacity-100 {
   opacity: 1 !important;
-}
-
-.tw-opacity-50 {
-  opacity: 0.5 !important;
 }
 
 .tw-opacity-80 {
@@ -849,12 +844,12 @@
     top: 1.5rem !important;
   }
 
-  .lg\:tw-mt-0 {
-    margin-top: 0px !important;
-  }
-
   .lg\:tw-ml-8 {
     margin-left: 2rem !important;
+  }
+
+  .lg\:tw-mt-0 {
+    margin-top: 0px !important;
   }
 
   .lg\:tw-ml-28 {

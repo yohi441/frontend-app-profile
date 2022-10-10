@@ -4,13 +4,19 @@ import DateJoined from '../profile/DateJoined';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { getConfig } from '@edx/frontend-platform';
-import { getAuthenticatedHttpClient as getHttpClient } from '@edx/frontend-platform/auth';
+import { getAuthenticatedHttpClient as getHttpClient, getAuthenticatedUser } from '@edx/frontend-platform/auth';
 
 
-async function getEnrollment(){
+async function getEnrollmentCount(){
     const { data } = await getHttpClient().get(`${getConfig().LMS_BASE_URL}/api/enrollment/v1/enrollment`);
     const enroll = await data.length
     return enroll;
+}
+
+async function getCertificateCount(){
+  const data = await getAuthenticatedUser();
+  const count = await data.courseCertificates;
+  return count
 }
 
 
@@ -22,14 +28,20 @@ function ProfileCard({props: {
 }}) {
 
     const [enrollCount, setEnrollCount] = useState([]);
+    const [certificatesCount, setCertificatesCount] = useState();
 
-    console.log(getEnrollment())
 
     useEffect(()=>{
-        setEnrollCount(getEnrollment())
-    },[])
+      getEnrollmentCount().then((value) => {
+        setEnrollCount(value)
+      });
+      getCertificateCount().then((value) => {
+        setCertificatesCount(value)
+      });
+    },[enrollCount, certificatesCount])
 
-    console.log(enrollCount)
+    console.log(certificatesCount)
+    
     
     return ( 
         <div className='tw-relative tw-overflow-hidden tw-mb-20 tw-mt-30 tw-flex lg:tw-flex-row tw-flex-col tw-items-center tw-rounded-lg tw-px-10 tw-py-10 tw-w-full tw-shadow-all'>
@@ -57,7 +69,7 @@ function ProfileCard({props: {
                 </div>
                 <div className='lg:tw-ml-10 -tw-ml-10'>
                   <h3 className='tw-uppercase tw-text-sm tw-text-gray-700'>enrolled</h3>
-                  <p>1</p>
+                  <p>{enrollCount}</p>
                 </div>
                 <div className='lg:tw-ml-10 -tw-ml-10'>
                   <h3 className='tw-uppercase tw-text-sm tw-text-gray-700'>Lorem, ipsum.</h3>
@@ -65,7 +77,7 @@ function ProfileCard({props: {
                 </div>
                 <div className='lg:tw-ml-10 -tw-ml-10'>
                   <h3 className='tw-uppercase tw-text-sm tw-text-gray-700'>Certificate</h3>
-                  <p>Lorem, ipsum.</p>
+                  {certificatesCount ? <p>{certificatesCount}</p>: <p>0</p> }
                 </div>
 
                 <div className='tw-opacity-50 tw-absolute tw-bottom-40 tw-right-32 lg:tw-right-28 lg:tw-top-6'>
