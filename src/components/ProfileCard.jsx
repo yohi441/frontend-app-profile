@@ -40,7 +40,6 @@ function ProfileCard({props: {
       });
     },[enrollCount, certificatesCount])
 
-    console.log(certificatesCount)
     
     
     return ( 
