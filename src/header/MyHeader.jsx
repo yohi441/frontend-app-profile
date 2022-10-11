@@ -30,17 +30,20 @@ export const MyHeader = () => {
     let hackademyLogo = `${lmsBaseUrl}/static/hackademy-theme/images/logo.png`;
     const defaultImg = `${lmsBaseUrl}/static/images/profiles/default_30.png`;
     
-    const [username, setUsername] = useState();
-    const [avatarImg, setAvatarImg] = useState();
-    
-    useEffect(() => {
-        getAvatar(getAuthenticatedUser().username).then((value) => {
-            setAvatarImg(value)
-        });   
-    }, [avatarImg])
-    getUsername().then((value) => {
-        setUsername(value)
+    const [username, setUsername] = useState(() => {
+        getUsername().then((value) => {
+            setUsername(value)
+        });
     });
+    const [avatarImg, setAvatarImg] = useState(() => {
+        getAvatar(getAuthenticatedUser().username)
+        .then((value) => {
+            setAvatarImg(value)
+        })
+    });
+    
+  
+    
   
    
     
