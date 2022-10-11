@@ -10,26 +10,16 @@ import MobileDropDownRight from './MobileDropDownRight';
 import { useEffect } from 'react';
 
 
-
-async function getEnrollment(){
-    const { data } = await getHttpClient().get(`${getConfig().LMS_BASE_URL}/api/enrollment/v1/enrollment`);
-    const enroll = await data.length
-    return enroll;
+async function getAvatar(username){
+    const { data } = await getHttpClient().get(`${getConfig().LMS_BASE_URL}/api/user/v1/accounts/${username}`);
+    const imgUrl = await data.profile_image.image_url_small;
+    console.log(data)
+    return imgUrl
 }
 
-async function getAvatar(){
-    const data = await getAuthenticatedUser();
-    
-    if (data.profileImage) {
-        const img = await data.profileImage.imageUrlSmall;
-        return img;
-    }
-    else {
-        const data = getConfig().LMS_BASE_URL;
-        const defaultImg = `${data}/static/images/profiles/default_30.png`;
-        return defaultImg;
-    }
-    
+async function getUsername() {
+    const username = await getAuthenticatedUser().username;
+    return username
 }
 
 
@@ -40,20 +30,20 @@ export const MyHeader = () => {
     let hackademyLogo = `${lmsBaseUrl}/static/hackademy-theme/images/logo.png`;
     const defaultImg = `${lmsBaseUrl}/static/images/profiles/default_30.png`;
     
-    const [data, setData] = useState([]);
-    const [avatarImg, setAvatarImg] = useState("");
-
-
-    useEffect(()=>{
-        setData(getAuthenticatedUser());
-        getAvatar().then((value) => {
-            setAvatarImg(value);
-        })
-        
-    },[data, avatarImg])
+    const [username, setUsername] = useState();
+    const [avatarImg, setAvatarImg] = useState();
     
-    console.log(avatarImg)
+    useEffect(() => {
+        getAvatar(getAuthenticatedUser().username).then((value) => {
+            setAvatarImg(value)
+        });   
+    }, [avatarImg])
+    getUsername().then((value) => {
+        setUsername(value)
+    });
   
+   
+    
     // this code is use for toggling the dropdown menu
     const [show, setShow] = useState(false)
     const [showLeftDrop, setShowLeftDrop] = useState(false)
@@ -102,13 +92,13 @@ export const MyHeader = () => {
                         </div>
                         {/* username */}
                         <div className='tw-hidden md:tw-block tw-cursor-pointer hover:tw-bg-gray-200 tw-px-1'>
-                            <a href={dashboardUrl} className='tw-text-primaryNavy tw-no-underline'>{data.username ? data.username : 'fetching.. user' }</a>
+                            <a href={dashboardUrl} className='tw-text-primaryNavy tw-no-underline'>{username ? username : 'fetching.. user' }</a>
                         </div>
 
                         {/* mobile avatar dropdown*/}
                         <div onClick={ () => { setShowRightDrop(true) } } className='p-1 tw-relative md:tw-hidden hover:tw-bg-gray-200'>
                             <div className='tw-cursor-pointer tw-h-12 tw-w-12 tw-rounded-full tw-shadow-all tw-overflow-hidden'>
-                                <img className='tw-w-full tw-h-full tw-object-cover' src={data.profileImage?.imageUrlSmall ? data.profileImage.imageUrlSmall : defaultImg } alt="" />  
+                                <img className='tw-w-full tw-h-full tw-object-cover' src={avatarImg ? avatarImg : defaultImg } alt="avatar" />  
                             </div>
                             
                         </div>
@@ -117,7 +107,7 @@ export const MyHeader = () => {
                         <div className='p-1 tw-hidden md:tw-block hover:tw-bg-gray-200'>
                             <div className='tw-cursor-pointer tw-h-12 tw-w-12 tw-rounded-full tw-shadow-all tw-overflow-hidden'>
                                 <a href={dashboardUrl}>
-                                    <img className='tw-w-full tw-h-full tw-object-cover' src={data.profileImage?.imageUrlSmall ? data.profileImage.imageUrlSmall : defaultImg } alt="" />
+                                    <img className='tw-w-full tw-h-full tw-object-cover' src={avatarImg ? avatarImg : defaultImg } alt="" />
                                 </a>
                             </div>
                             
